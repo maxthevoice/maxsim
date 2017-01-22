@@ -22,19 +22,20 @@ Uses [SaltStack] to provision a [django] application initally started from [djan
 
 ## Prerequisis
 
-pip install -r /vagrant/maxsim/requirements.txt
+- pip install -r /vagrant/maxsim/requirements.txt
 
 ## validation
 
-python -m django --version
+- python -m django --version
 
 ## usefull commands
 
-vagrant up
-vagrant ssh
-source env/bin/activate
-sudo salt-call state.highstate
-pip freeze > requirements.txt
+- vagrant up
+- vagrant ssh
+- source env/bin/activate
+- sudo salt-call state.highstate
+- pip freeze > requirements.txt
 
 ## When internal servor error or 502 bad gateway
-sudo service uwsgi restart
+
+- sudo service uwsgi restart

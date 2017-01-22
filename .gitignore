@@ -1,4 +1,3 @@
 /.vagrant/
+/maxsim/.idea/
 *.pyc
-maxsim/maxsim/static/
-maxsim/.idea/

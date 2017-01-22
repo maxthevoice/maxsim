@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.define :web do |web|
     # Ubuntu 14.04
     web.vm.box = "ubuntu/trusty64"
-    web.vm.box_url = "https://atlas.hashicorp.com/ubuntu/boxes/trusty64"
+    # web.vm.box_url = "https://atlas.hashicorp.com/ubuntu/boxes/trusty64"
 
     # Network
     web.vm.hostname = "vagrant.django-salted.org"
@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
       salt.run_highstate = true
 
       # Install the latest version of SaltStack
-      salt.install_type = "daily"
+      salt.install_type = "stable"
     end
 
     # Customize the box
