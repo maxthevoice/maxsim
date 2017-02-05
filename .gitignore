@@ -1,3 +1,5 @@
 /.vagrant/
-/maxsim/.idea/
+/maxsim/\.idea/
+maxsim/dev\.sqlite3
+maxsim/\.env
 *.pyc

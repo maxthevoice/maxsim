@@ -76,15 +76,13 @@ WSGI_APPLICATION = 'maxsim.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.environ.get('MAXSIM_DB_ENGINE', 'django.db.backends.postgresql_psycopg2'),
+        'NAME': os.environ.get('MAXSIM_DB_NAME', 'maxsim'),
+        'USER': os.environ.get('MAXSIM_DB_USER', 'maxsim'),
+        'PASSWORD': os.environ.get('MAXSIM_DB_PASSWORD', 'maxsim'),
+        'HOST': os.environ.get('MAXSIM_DB_HOST', 'localhost'),
+        'PORT': os.environ.get('MAXSIM_DB_PORT', '5432'),
     }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'maxsim',
-    #     'USER': 'maxsim',
-    #     'PASSWORD': 'maxsim'
-    # }
 }
 
 
