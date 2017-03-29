@@ -1,23 +1,25 @@
+{%- set postgresql = salt['pillar.get']('maxsim:postgresql') %}
+
 include:
   - postgresql
 
-example-postgres-user:
+maxsim-postgres-user:
   postgres_user.present:
-    - name: {{ pillar['postgresql']['user'] }}
-    - createdb: {{ pillar['postgresql']['createdb'] }}
-    - password: {{ pillar['postgresql']['password'] }}
+    - name: {{ postgresql.user }}
+    - createdb: {{ postgresql.createdb }}
+    - password: {{ postgresql.password }}
     - runas: postgres
     - require:
       - service: postgresql
 
-example-postgres-db:
+maxsim-postgres-db:
   postgres_database.present:
-    - name: {{ pillar['postgresql']['db'] }}
+    - name: {{ postgresql.db }}
     - encoding: UTF8
     - lc_ctype: en_US.UTF8
     - lc_collate: en_US.UTF8
     - template: template0
-    - owner: {{ pillar['postgresql']['user'] }}
+    - owner: {{ postgresql.user }}
     - runas: postgres
     - require:
-        - postgres_user: example-postgres-user
+        - postgres_user: maxsim-postgres-user

@@ -1,5 +1,5 @@
 base:
-  'vagrant.django-salted.org':
-    - vagrant-django
-    - vagrant-uwsgi
+  '*vagrant*':
     - vagrant-postgresql
+    - maxsim
+    - maxsim.vagrant

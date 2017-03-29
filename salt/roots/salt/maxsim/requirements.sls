@@ -1,4 +1,4 @@
-example-packages:
+maxsim-packages:
   pkg.installed:
     - names:
       - python-pip

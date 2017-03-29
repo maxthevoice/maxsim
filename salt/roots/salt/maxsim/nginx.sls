@@ -1,22 +1,31 @@
+{% set api = salt['pillar.get']('maxsim:api') %}
+{% set server_name = api['nginx_server_name'] %}
+{% set main_domain = server_name.split(' ')[0] %}
 include:
   - nginx
 
-example-nginx-conf:
+maxsim-nginx-conf:
   file.managed:
-    - name: /etc/nginx/sites-available/example.conf
-    - source: salt://maxsim/nginx.conf
+    - name: /etc/nginx/sites-available/maxsim.conf
+    - source: salt://maxsim/files/nginx.conf
     - template: jinja
     - user: www-data
     - group: www-data
     - mode: 755
+    - context:
+      api: {{ api }}
+      server_name: {{ server_name }}
+      main_domain: {{ main_domain }}
     - require:
       - pkg: nginx
+    - watch_in:
+      - service: nginx
 
 # Symlink and thus enable the virtual host
-example-enable-nginx:
+maxsim-enable-nginx:
   file.symlink:
-    - name: /etc/nginx/sites-enabled/example.conf
-    - target: /etc/nginx/sites-available/example.conf
+    - name: /etc/nginx/sites-enabled/maxsim.conf
+    - target: /etc/nginx/sites-available/maxsim.conf
     - force: false
     - require:
-      - file: example-nginx-conf
+      - file: maxsim-nginx-conf
