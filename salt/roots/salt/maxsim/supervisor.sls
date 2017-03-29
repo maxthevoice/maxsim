@@ -6,7 +6,7 @@ include:
 # gunicorn script
 maxsim gunicorn script:
   file.managed:
-    - name: /srv/gunicorn-maxsim.sh
+    - name: /etc/gunicorn-maxsim.sh
     - source: salt://maxsim/files/gunicorn.sh
     - template: jinja
     - mode: 0744
@@ -32,11 +32,11 @@ maxsim supervisor:
     - source: salt://maxsim/files/supervisor/maxsim.conf
     - template: jinja
     - context:
-        command: /srv/gunicorn-maxsim.sh
+        command: /etc/gunicorn-maxsim.sh
         user: {{ api.user }}
         directory: {{ api.path }}
     - require:
-      - file: /srv/gunicorn-maxsim.sh
+      - file: /etc/gunicorn-maxsim.sh
     - require_in:
       - service: supervisor
   supervisord.running:
