@@ -2,4 +2,5 @@
 /maxsim/\.idea/
 maxsim/dev\.sqlite3
 maxsim/\.env
+maxsim/\.log
 *.pyc
