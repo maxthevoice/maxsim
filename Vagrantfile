@@ -8,13 +8,14 @@ Vagrant.configure("2") do |config|
     # web.vm.box_url = "https://atlas.hashicorp.com/ubuntu/boxes/trusty64"
 
     # Network
-    web.vm.hostname = "vagrant.django-salted.org"
+    web.vm.hostname = "maxsim.vagrant"
     web.vm.network :forwarded_port, guest: 80, host: 8080, auto_correct: true
     web.vm.network :forwarded_port, guest: 5432, host: 5432
     web.vm.network 'private_network', ip: '192.168.100.100'
 
     # Share for masterless server
     web.vm.synced_folder "salt/roots/", "/srv/"
+    web.vm.synced_folder "maxsim/", "/srv/maxsim/", group: 'www-data', mount_options: ["dmode=775"]
 
     web.vm.provision :salt do |salt|
       # Configure the minion
@@ -22,10 +23,6 @@ Vagrant.configure("2") do |config|
 
       # Show the output of salt
       salt.verbose = true
-
-      # Pre-distribute these keys on our local installation
-      salt.minion_key = "salt/keys/vagrant.django-salted.org.pem"
-      salt.minion_pub = "salt/keys/vagrant.django-salted.org.pub"
 
       # Run the highstate on start
       salt.run_highstate = true

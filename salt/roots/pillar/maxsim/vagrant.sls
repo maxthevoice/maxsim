@@ -1,6 +1,6 @@
 maxsim:
   api:
-    nginx_server_name: localhost
+    nginx_server_name: api.maxsim.vagrant *.ngrok.io *.localtunnel.me
     debug: true
     user: vagrant
     group: vagrant

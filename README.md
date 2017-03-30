@@ -27,7 +27,7 @@ Uses [SaltStack] to provision a [django] application initally started from [djan
 
 ## Create alias
 - vim ~/.bash_aliases
-- alias api='source /home/vagrant/env/bin/activate;cd /vagrant/maxsim/'
+- alias api='source /usr/local/virtualenvs/maxsim/bin/activate;cd /srv/maxsim/'
 - source ~/.bashrc
 
 Now execute the command `api`, easy!
