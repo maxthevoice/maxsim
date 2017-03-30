@@ -9,6 +9,7 @@
   "MAXSIM_DB_USER": postgresql.user | default('maxsim'),
   "MAXSIM_DB_PASSWORD": postgresql.password | default('maxsim'),
   "MAXSIM_DB_HOST": postgresql.host | default('localhost'),
+  "MAXSIM_ALLOWED_HOSTS": api.allowed_hosts | default('[*]'),
 } %}
 
 maxsim-dotenv:

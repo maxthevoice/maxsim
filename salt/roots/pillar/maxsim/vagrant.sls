@@ -1,6 +1,7 @@
 maxsim:
   api:
     nginx_server_name: api.maxsim.vagrant *.ngrok.io *.localtunnel.me
+    allowed_hosts: api.maxsim.vagrant
     debug: true
     user: vagrant
     group: vagrant

@@ -14,6 +14,8 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ALLOWED_HOSTS = os.environ.get('MAXSIM_ALLOWED_HOSTS', '[*]')
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 
 # Quick-start development settings - unsuitable for production

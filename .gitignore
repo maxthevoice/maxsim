@@ -1,4 +1,5 @@
 /.vagrant/
+/maxsim/static/
 /maxsim/\.idea/
 /maxsim/dev\.sqlite3
 /maxsim/\.env
