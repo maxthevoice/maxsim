@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ALLOWED_HOSTS = os.environ.get('MAXSIM_ALLOWED_HOSTS', '[*]')
+
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 
@@ -27,11 +27,9 @@ SECRET_KEY = ')-tepb@o0o_!a+-5i6+%+(6)&-(%r+bl96m*s-2nb05)7#9vkf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = os.environ.get('MAXSIM_ALLOWED_HOSTS', '[*]')
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework'
+    'api',
+    'rest_framework',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [

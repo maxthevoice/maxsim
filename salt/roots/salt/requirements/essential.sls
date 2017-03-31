@@ -4,6 +4,7 @@ essential-packages:
       - curl
       - wget
       - vim-nox
+      - htop
       - sysstat
       - build-essential
       - ncurses-term

@@ -10,15 +10,12 @@ Uses [SaltStack] to provision a [django] application initally started from [djan
 
 ## Getting started
 
-[Documentation on repository's wiki]
-
 [SaltStack]: http://saltstack.com/community.html
 [Virtualbox]: https://www.virtualbox.org/
 [Virtualbox extensions]: https://www.virtualbox.org/wiki/Downloads
 [Vagrant]: http://www.vagrantup.com/
 [django]: https://docs.djangoproject.com
 [django-salted]: https://github.com/wunki/django-salted/
-[Documentation on repository's wiki]: https://github.com/WEGOTRADE/vagrant/wiki
 
 ## First steps
 
@@ -27,7 +24,7 @@ Uses [SaltStack] to provision a [django] application initally started from [djan
 
 ## Create alias
 - vim ~/.bash_aliases
-- alias api='source /usr/local/virtualenvs/maxsim/bin/activate;cd /srv/maxsim/'
+- alias maxsim='source /usr/local/virtualenvs/maxsim/bin/activate;cd /srv/maxsim/'
 - source ~/.bashrc
 
 Now execute the command `api`, easy!
@@ -46,7 +43,3 @@ Now execute the command `api`, easy!
 
 - sudo salt-call state.highstate
 - pip freeze > /vagrant/maxsim/requirements.txt
-
-## When internal servor error or 502 bad gateway(Doesn't work yet, waiting for Gunicorn/Supervisor)
-
-- sudo service uwsgi restart
