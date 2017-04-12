@@ -1,11 +1,14 @@
 essential-packages:
   pkg.installed:
     - names:
+      - curl
+      - wget
       - vim-nox
+      - htop
       - sysstat
       - build-essential
-      # We need this to recognize rxvt terminal
       - ncurses-term
       - bash
       - git
       - tmux
+      - zsh

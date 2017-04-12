@@ -1,0 +1,2 @@
+# Ensure supervisor initscript has lf line ending
+supervisor         eol=lf

@@ -1,13 +1,25 @@
+{%- set api = salt['pillar.get']('maxsim:api') %}
+
 include:
   - nginx
 
+add ~ add user to virtualenvs:
+  group.present:
+    - name: virtualenvs
+    - addusers:
+      - {{api['user']}}
+
 # Create the Python Virtual environment
-{{ pillar['django']['virtualenv'] }}:
+{{ api['virtualenv'] }}:
+  file.directory:
+    - makedirs: True
+    - group: virtualenvs
+    - mode: 775
   virtualenv.managed:
     - system_site_packages: False
     - distribute: True
     - python: /usr/bin/python3.4
-    - user: {{ pillar['django']['user'] }}
+    - requirements: {{api['path']}}/requirements.txt
     - no_chown: True
     - require:
       - pkg: python-virtualenv

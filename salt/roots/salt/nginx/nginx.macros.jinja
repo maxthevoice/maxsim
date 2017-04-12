@@ -1,0 +1,8 @@
+# This file contains some useful macros
+# Welcome to the nginx gold mine
+
+{% macro caching() -%}
+  location ~*  \.(jpg|jpeg|png|gif|ico|css|js)$ {
+      expires 30d;
+  }
+{%- endmacro %}

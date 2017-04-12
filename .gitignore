@@ -1,5 +1,9 @@
 /.vagrant/
+/maxsim/static/
 /maxsim/\.idea/
-maxsim/dev\.sqlite3
-maxsim/\.env
+/maxsim/dev\.sqlite3
+/maxsim/\.env
+/maxsim/logs/
 *.pyc
+
+salt/roots/maxsim/logs/
