@@ -15,6 +15,7 @@ Uses [SaltStack] to provision a [django] application initally started from [djan
 [Virtualbox extensions]: https://www.virtualbox.org/wiki/Downloads
 [Vagrant]: http://www.vagrantup.com/
 [django]: https://docs.djangoproject.com
+[django REST framework]: http://www.django-rest-framework.org/
 [django-salted]: https://github.com/wunki/django-salted/
 
 ## First steps
@@ -36,10 +37,10 @@ Now execute the command `api`, easy!
 
 ## Prerequisis
 
-- pip install -r /vagrant/maxsim/requirements.txt
+- pip install -r /srv/maxsim/requirements.txt
 - python manage.py migrate
 
 ## usefull commands
 
 - sudo salt-call state.highstate
-- pip freeze > /vagrant/maxsim/requirements.txt
+- pip freeze > /srv/maxsim/requirements.txt
