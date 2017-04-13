@@ -8,7 +8,6 @@ maxsim-postgres-user:
     - name: {{ postgresql.user }}
     - createdb: {{ postgresql.createdb }}
     - password: {{ postgresql.password }}
-    - runas: postgres
     - require:
       - service: postgresql
 
@@ -20,6 +19,5 @@ maxsim-postgres-db:
     - lc_collate: en_US.UTF8
     - template: template0
     - owner: {{ postgresql.user }}
-    - runas: postgres
     - require:
         - postgres_user: maxsim-postgres-user
