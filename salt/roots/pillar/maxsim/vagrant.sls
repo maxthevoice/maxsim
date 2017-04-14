@@ -7,7 +7,6 @@ maxsim:
     group: vagrant
     db_engine: django.db.backends.postgresql_psycopg2
     db_port: 5432
-    settings: maxsim.settings
     superusers:
       - username: vagrant
         email: maxime.lavoie2@gmail.com
