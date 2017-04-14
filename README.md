@@ -1,4 +1,4 @@
-# Maxsim Django Salted vagrant
+# Maxsim
 
 Uses [SaltStack] to provision a [django] application initally started from [django-salted]
 
@@ -24,23 +24,16 @@ Uses [SaltStack] to provision a [django] application initally started from [djan
 - vagrant ssh
 
 ## Create alias
+
 - vim ~/.bash_aliases
 - alias maxsim='source /usr/local/virtualenvs/maxsim/bin/activate;cd /srv/maxsim/'
 - source ~/.bashrc
 
-Now execute the command `api`, easy!
-
-## Validate the version
-
-- python -V
-- python -m django --version
-
-## Prerequisis
-
-- pip install -r /srv/maxsim/requirements.txt
-- python manage.py migrate
+Now execute the command `maxsim`, easy!
 
 ## usefull commands
 
-- sudo salt-call state.highstate
+- pip install -r /srv/maxsim/requirements.txt
 - pip freeze > /srv/maxsim/requirements.txt
+- sudo salt-call state.highstate
+- sudo chown -R vagrant:vagrant /usr/local/virtualenvs/maxsim/

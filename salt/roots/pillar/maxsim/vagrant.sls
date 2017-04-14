@@ -5,6 +5,8 @@ maxsim:
     debug: true
     user: vagrant
     group: vagrant
+    db_engine: django.db.backends.postgresql_psycopg2
+    db_port: 5432
     settings: maxsim.settings
     superusers:
       - username: vagrant
