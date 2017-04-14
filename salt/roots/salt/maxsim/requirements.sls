@@ -1,8 +1,8 @@
-{% set api = salt['pillar.get']('maxsim:api') %}
+{% set maxsim = salt['pillar.get']('maxsim:maxsim') %}
 
-create {{ api.user }} user:
+create {{ maxsim.user }} user:
   user.present:
-    - name: {{ api.user }}
+    - name: {{ maxsim.user }}
 
 maxsim-packages:
   pkg.installed:

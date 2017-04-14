@@ -1,5 +1,5 @@
-{% set api = salt['pillar.get']('maxsim:api') %}
-{% set server_name = api['nginx_server_name'] %}
+{% set maxsim = salt['pillar.get']('maxsim:maxsim') %}
+{% set server_name = maxsim['nginx_server_name'] %}
 {% set main_domain = server_name.split(' ')[0] %}
 include:
   - nginx
@@ -13,7 +13,7 @@ maxsim-nginx-conf:
     - group: www-data
     - mode: 755
     - context:
-      api: {{ api }}
+      maxsim: {{ maxsim }}
       server_name: {{ server_name }}
       main_domain: {{ main_domain }}
     - require:

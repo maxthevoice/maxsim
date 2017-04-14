@@ -1,4 +1,4 @@
-{%- set api = salt['pillar.get']('maxsim:api') %}
+{%- set maxsim = salt['pillar.get']('maxsim:maxsim') %}
 
 include:
   - supervisor
@@ -10,19 +10,19 @@ maxsim gunicorn script:
     - source: salt://maxsim/files/gunicorn.sh
     - template: jinja
     - mode: 0744
-    - user: {{ api.user }}
-    - group: {{ api.group }}
+    - user: {{ maxsim.user }}
+    - group: {{ maxsim.group }}
     - context:
-        address: 127.0.0.1:{{ api.gunicorn_port }} # internal port, reverse proxied by nginx
+        address: 127.0.0.1:{{ maxsim.gunicorn_port }} # internal port, reverse proxied by nginx
         project_name: maxsim
-        document_root: {{ api.path }}
-        user: {{ api.user }}
-        group: {{ api.group }}
-        django_settings_module: {{ api.settings }}
-        gunicorn_path: {{ api.virtualenv }}/bin/gunicorn
+        document_root: {{ maxsim.path }}
+        user: {{ maxsim.user }}
+        group: {{ maxsim.group }}
+        django_settings_module: {{ maxsim.settings }}
+        gunicorn_path: {{ maxsim.virtualenv }}/bin/gunicorn
         reload: {{ grains['virtual'] }} # Auto reload from source if on virtualbox
-        timeout: {{ api['timeout'] | default(300) }}
-        workers: {{ api['workers'] | default(2) }}
+        timeout: {{ maxsim['timeout'] | default(300) }}
+        workers: {{ maxsim['workers'] | default(2) }}
 
 
 # main application workers
@@ -33,8 +33,8 @@ maxsim supervisor:
     - template: jinja
     - context:
         command: /etc/gunicorn-maxsim.sh
-        user: {{ api.user }}
-        directory: {{ api.path }}
+        user: {{ maxsim.user }}
+        directory: {{ maxsim.path }}
     - require:
       - file: /etc/gunicorn-maxsim.sh
     - require_in:

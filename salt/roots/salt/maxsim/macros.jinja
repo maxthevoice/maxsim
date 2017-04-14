@@ -1,12 +1,12 @@
-{%- set api = salt['pillar.get']('maxsim:api') %}
+{%- set maxsim = salt['pillar.get']('maxsim:maxsim') %}
 
 # Executes command inside virtualenv
 {% macro in_venv(cmd) -%}
-  source {{ api['virtualenv'] }}/bin/activate; {{ cmd }}
+  source {{ maxsim['virtualenv'] }}/bin/activate; {{ cmd }}
 {%- endmacro %}
 
 {% macro with_dotenv(cmd) -%}
-  env $(cat {{ api['path'] }}/.env | xargs) {{ cmd }}
+  env $(cat {{ maxsim['path'] }}/.env | xargs) {{ cmd }}
 {%- endmacro %}
 
 {% macro in_venv_with_dotenv(cmd) -%}

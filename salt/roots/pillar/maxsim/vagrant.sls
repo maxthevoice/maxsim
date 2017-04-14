@@ -1,5 +1,5 @@
 maxsim:
-  api:
+  maxsim:
     nginx_server_name: hockey.maxsim.vagrant *.ngrok.io *.localtunnel.me
     allowed_hosts: ['*.maxsim.vagrant']
     debug: true
