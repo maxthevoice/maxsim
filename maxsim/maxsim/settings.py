@@ -1,11 +1,11 @@
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
 ROOT_URLCONF = 'maxsim.urls'
 
-DEBUG = os.environ.get('MAXSIM_DEBUG', False)
+DEBUG = os.environ.get('MAXSIM_DEBUG', True)
 
 SECRET_KEY = ')-tepb@o0o_!a+-5i6+%+(6)&-(%r+bl96m*s-2nb05)7#9vkf'
 ALLOWED_HOSTS = os.environ.get('MAXSIM_ALLOWED_HOSTS', '[*]')
@@ -67,8 +67,8 @@ WSGI_APPLICATION = 'maxsim.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('MAXSIM_DB_ENGINE', 'django.db.backends.postgresql_psycopg2'),
-        'NAME': os.environ.get('MAXSIM_DB_NAME', 'maxsim'),
+        'ENGINE': os.environ.get('MAXSIM_DB_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.environ.get('MAXSIM_DB_NAME', 'maxsim.db'),
         'USER': os.environ.get('MAXSIM_DB_USER', 'maxsim'),
         'PASSWORD': os.environ.get('MAXSIM_DB_PASSWORD', 'maxsim'),
         'HOST': os.environ.get('MAXSIM_DB_HOST', 'localhost'),
