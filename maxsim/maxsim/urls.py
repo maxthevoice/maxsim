@@ -7,6 +7,7 @@ from maxsim_hockey import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

@@ -1,7 +1,7 @@
 maxsim:
   maxsim:
-    nginx_server_name: hockey.maxsim.vagrant *.ngrok.io *.localtunnel.me
-    allowed_hosts: ['*.maxsim.vagrant']
+    nginx_server_name: maxsimhockey.example.com *.ngrok.io *.localtunnel.me
+    allowed_hosts: ['*.example.com']
     debug: true
     user: vagrant
     group: vagrant
