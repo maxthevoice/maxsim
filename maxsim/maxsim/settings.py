@@ -119,5 +119,11 @@ SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
         'SCOPE': ['email', 'public_profile'],
         'METHOD': 'js_sdk'
+    },
+    'google': {
+        'SCOPE': ['email', 'profile'],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
     }
 }
